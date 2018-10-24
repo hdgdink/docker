@@ -1,10 +1,12 @@
 FROM amazonlinux:latest
 MAINTAINER Andrey_Vassilyev <hdgdink@list.ru>
-RUN sudo yum update
-RUN sudo yum install httpd php
-ADD conf /etc/httpd/httpd.conf
-ADD conf /start.sh
-ADD conf /var/www
+RUN yum update -y
+RUN yum install httpd php -y
+ADD conf/httpd.conf /etc/httpd/httpd.conf
+ADD conf/start.sh /start.sh
+ADD conf/index.php /var/www
+
+EXPOSE 8080
 
 RUN chmod 0755 /start.sh
 CMD ["bash", "start.sh"]
