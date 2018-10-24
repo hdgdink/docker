@@ -1,7 +1,7 @@
 FROM amazonlinux:latest
 MAINTAINER Andrey_Vassilyev <hdgdink@list.ru>
-RUN sudo yum update -y
-RUN sudo yum install -y httpd php
+RUN sudo yum update
+RUN sudo yum install httpd php
 ADD conf /etc/httpd/httpd.conf
 ADD conf /start.sh
 ADD conf /var/www
