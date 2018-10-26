@@ -32,7 +32,7 @@ services:
       - ./src:var/www/html
     links:
       - mariadb
-        apache_php
+      - apache_php
     depends_on:
       - apache_php
     environment:
