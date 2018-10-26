@@ -1,7 +1,7 @@
 FROM amazonlinux:latest
 MAINTAINER Andrey_Vassilyev <hdgdink@list.ru>
-RUN sudo yum update -y
-RUN sudo yum install -y  mariadb-server
+RUN yum update -y
+RUN yum install -y  mariadb-server MySQL-python
 
 EXPOSE 3306
 
