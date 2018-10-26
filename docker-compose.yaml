@@ -18,6 +18,7 @@ services:
     build: ./mySQL
     ports:
       - 3306:3306
+    restart: always
     volumes:
       - ./mariadb:/var/lib/mysql
     environment:
