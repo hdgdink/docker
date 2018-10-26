@@ -22,12 +22,15 @@ services:
       - ./mariadb:/var/lib/mysql
     environment:
       MYSQL_HOSTNAME: "mariaDB"
+      MARIADB_USER: "root"
+      MARIADB_PASSWORD: "rootroot"
+      MARIADB_DATABASE: "my_database"
 
 
   apache_load_balancer:
     build: ./balancer
     ports:
-      - 80:80
+      - 8080:80
     volumes:
       - ./src:/var/www/html
     links:

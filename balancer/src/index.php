@@ -1,7 +1,7 @@
 <?php
-$servername = "efpdb.c5fqlwkl0eso.us-east-1.rds.amazonaws.com";
-$username = "root";
-$password = "rootroot";
+$servername = '{{getenv "MYSQL_HOSTNAME"}}';
+$username = '{{getenv "MARIADB_USER"}}';
+$password = '{{getenv "MARIADB_PASSWORD"}}';
 $hostname = gethostname();
 // Create connection
 $conn = new mysqli($servername, $username, $password);
