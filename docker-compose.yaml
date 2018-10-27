@@ -6,7 +6,7 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - ./src:/var/www/html
+      - ./httpd/src:/var/www/html
     links:
       - mariadb
     depends_on:
@@ -20,7 +20,7 @@ services:
       - 3306:3306
     restart: always
     volumes:
-      - ./mariadb:/var/lib/mysql
+      - ./mySQL:/var/lib/mysql
     environment:
       MYSQL_HOSTNAME: "mariaDB"
       MARIADB_USER: "root"
@@ -33,7 +33,7 @@ services:
     ports:
       - 8080:80
     volumes:
-      - ./src:/var/www/html
+      - ./balancer/src:/var/www/html
     links:
       - mariadb
       - apache_php
