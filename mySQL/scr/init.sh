@@ -1,2 +1,3 @@
-#!/usr/bin/env bash
-mysql -u root -p $MYSQL_ROOT_PASSWORD < /tmp/dbcreation.sql
+#!/bin/bash
+
+mysql -u root -p rootroot

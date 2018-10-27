@@ -4,5 +4,9 @@ RUN yum update -y
 RUN yum install -y  mariadb-server MySQL-python
 RUN yum clean all && rm -rf /tmp/yum*
 
+ADD src/init.sh /init.sh
+
+RUN chmod 0755 /init.sh
+CMD ["bash", "init.sh"]
 
 EXPOSE 3306
