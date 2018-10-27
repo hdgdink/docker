@@ -1,3 +1,3 @@
 #!/bin/bash
 
-mysql -u root -p rootroot
+echo "GRANT ALL ON *.* TO admin@'%' IDENTIFIED BY 'changeme' WITH GRANT OPTION; FLUSH PRIVILEGES" | mysql
