@@ -31,7 +31,7 @@ services:
   apache_load_balancer:
     build: ./balancer
     ports:
-      - 8080:80
+      - 80:80
     volumes:
       - ./balancer/src:/var/www/html
     links:
