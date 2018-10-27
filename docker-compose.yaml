@@ -18,7 +18,6 @@ services:
     build: ./mySQL
     ports:
       - 3306:3306
-    restart: always
     volumes:
       - ./mySQL:/var/lib/mysql
     environment:

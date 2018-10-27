@@ -5,6 +5,7 @@ RUN yum update -y
 
 RUN yum install -y httpd
 RUN systemctl enable httpd.service
+RUN yum clean all && rm -rf /tmp/yum*
 
 EXPOSE 80
 
@@ -15,4 +16,3 @@ ADD conf/start.sh /start.sh
 
 RUN chmod 0755 /start.sh
 CMD ["bash", "start.sh"]
-

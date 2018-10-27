@@ -3,6 +3,7 @@ MAINTAINER Andrey_Vassilyev <hdgdink@list.ru>
 
 RUN yum update -y
 RUN yum install -y httpd php
+RUN yum clean all && rm -rf /tmp/yum*
 
 ADD conf/httpd.conf /etc/httpd/conf/httpd.conf
 ADD conf/start.sh /start.sh
