@@ -10,7 +10,7 @@ EXPOSE 80
 
 ADD conf/lb.conf /etc/httpd/conf/lb.conf
 ADD conf/httpd.conf /etc/httpd/conf/httpd.conf
-ADD src/index.php /var/www/html
+ADD src/index.php /var/www/html/index.php
 ADD conf/start.sh /start.sh
 
 RUN chmod 0755 /start.sh

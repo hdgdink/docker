@@ -6,7 +6,7 @@ RUN yum install -y httpd php
 
 ADD conf/httpd.conf /etc/httpd/conf/httpd.conf
 ADD conf/start.sh /start.sh
-ADD src/index.php /var/www/html
+ADD src/index.php /var/www/html/index.php
 
 EXPOSE 8080
 
