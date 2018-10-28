@@ -6,10 +6,6 @@ RUN yum update -y
 RUN yum install -y  mariadb-server MySQL-python
 RUN yum clean all && rm -rf /tmp/yum*
 
-
-RUN chmod 0755 /start.sh
-
-
 COPY src/fix-permissions.sh ./
 RUN chmod 0755 /fix-permissions.sh
 RUN ./fix-permissions.sh /var/lib/mysql/   && \
