@@ -26,10 +26,13 @@ services:
       MYSQL_PASSWORD: "rootroot"
       MYSQL_DATABASE: "my_database"
       MYSQL_ROOT_PASSWORD: "rootroot"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_CHARSET: "cp1251"
+      MYSQL_COLLATION: "cp1251_bin"
 
   apache_load_balancer:
     build: ./balancer
-    ports:
+    ports:MYSQL_ROOT_PASSWORD
       - 80:80
     volumes:
       - ./balancer/src:/var/www/html
