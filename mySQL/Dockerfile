@@ -6,7 +6,7 @@ RUN yum clean all && rm -rf /tmp/yum*
 
 ADD src/init.sh /init.sh
 
+EXPOSE 3306
+
 RUN chmod 0755 /init.sh
 CMD ["bash", "init.sh"]
-
-EXPOSE 3306

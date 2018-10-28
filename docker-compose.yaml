@@ -25,7 +25,7 @@ services:
       MYSQL_USER: "root"
       MYSQL_PASSWORD: "rootroot"
       MYSQL_DATABASE: "my_database"
-      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_ROOT_PASSWORD: "rootroot"
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
 
   apache_load_balancer:
