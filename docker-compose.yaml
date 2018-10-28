@@ -32,7 +32,7 @@ services:
 
   apache_load_balancer:
     build: ./balancer
-    ports:MYSQL_ROOT_PASSWORD
+    ports:
       - 80:80
     volumes:
       - ./balancer/src:/var/www/html
