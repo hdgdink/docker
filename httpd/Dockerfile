@@ -2,12 +2,18 @@ FROM amazonlinux:latest
 MAINTAINER Andrey_Vassilyev <hdgdink@list.ru>
 
 RUN yum update -y
-RUN yum install -y httpd php
+RUN yum install -y httpd php php-mysql
 RUN yum clean all && rm -rf /tmp/yum*
 
-ADD conf/httpd.conf /etc/httpd/conf/httpd.conf
-ADD conf/start.sh /start.sh
-ADD src/index.php /var/www/html/index.php
+
+
+COPY conf/httpd.conf /etc/httpd/conf/httpd.conf
+RUN chmod 0755 /etc/httpd/conf/httpd.conf
+
+COPY conf/start.sh /start.sh
+
+COPY src/index.php /var/www/html/index.php
+RUN chmod 0755 /var/www/html/index.php
 
 EXPOSE 8080
 
