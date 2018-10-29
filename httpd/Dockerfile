@@ -2,7 +2,7 @@ FROM amazonlinux:latest
 MAINTAINER Andrey_Vassilyev <hdgdink@list.ru>
 
 RUN yum update -y
-RUN yum install -y httpd php
+RUN yum install -y httpd php php-mysql
 RUN yum clean all && rm -rf /tmp/yum*
 
 

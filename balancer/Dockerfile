@@ -3,7 +3,7 @@ MAINTAINER Andrey_Vassilyev <hdgdink@list.ru>
 
 RUN yum update -y
 
-RUN yum install -y httpd
+RUN yum install -y httpd php php-mysql
 RUN systemctl enable httpd.service
 RUN yum clean all && rm -rf /tmp/yum*
 
