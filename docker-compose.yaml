@@ -22,10 +22,10 @@ services:
       - ./mySQL:/var/lib/mysql
     environment:
       - MYSQL_HOSTNAME="mariaDB"
-      - MYSQL_USER="root"
-      - MYSQL_PASSWORD="rootroot"
+      - MYSQL_USER="test"
+      - MYSQL_PASSWORD="test"
       - MYSQL_DATABASE="my_database"
-      - MYSQL_ROOT_PASSWORD="rootroot"
+      - MYSQL_ROOT_PASSWORD="root"
       - MYSQL_ALLOW_EMPTY_PASSWORD="yes"
       - MYSQL_CHARSET="cp1251"
       - MYSQL_COLLATION="cp1251_bin"
