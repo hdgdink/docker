@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  apache_php:
-    build: ./httpd
+  apache_php1:
+    image: hdgdink/apache
     ports:
       - 8080:8080
     volumes:
@@ -15,10 +15,25 @@ services:
       MYSQL_HOSTNAME: "mariadb"
       MYSQL_USER: "test"
       MYSQL_PASSWORD: "test"
-      APACHE_HOSTNAME1: "apache_php"
+
+  apache_php2:
+      image: hdgdink/apache
+      ports:
+        - 8090:8080
+      volumes:
+        - ./httpd/src:/var/www/html
+      links:
+        - mariadb
+      depends_on:
+        - apache_php1
+      environment:
+        MYSQL_HOSTNAME: "mariadb"
+        MYSQL_USER: "test"
+        MYSQL_PASSWORD: "test"
+
 
   mariadb:
-    build: ./mySQL
+    image: hdgdink/mariadb
     ports:
       - 3306:3306
     volumes:
@@ -34,19 +49,16 @@ services:
       MYSQL_COLLATION: "cp1251_bin"
 
   apache_load_balancer:
-    build: ./balancer
+    image: hdgdink/balancer
     ports:
       - 80:80
     volumes:
       - ./balancer/src:/var/www/html
     links:
-      - mariadb
-      - apache_php
+      - apache_php1
+      - apache_php2
     depends_on:
-      - apache_php
+      - apache_php2
     environment:
-      MYSQL_HOSTNAME: "mariadb"
-      MYSQL_USER: "test"
-      MYSQL_PASSWORD: "test"
-      APACHE_HOSTNAME2: "apache_load_balancer"
-      APACHE_HOSTNAME1: "apache_php"
+      APACHE_HOSTNAME2: "apache_php2"
+      APACHE_HOSTNAME1: "apache_php1"

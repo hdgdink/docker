@@ -12,12 +12,6 @@ EXPOSE 80
 COPY conf/lb.conf /etc/httpd/conf/lb.conf
 RUN chmod 0755 /etc/httpd/conf/lb.conf
 
-COPY conf/httpd.conf /etc/httpd/conf/httpd.conf
-RUN chmod 0755 /etc/httpd/conf/httpd.conf
-
-COPY src/index.php /var/www/html/index.php
-RUN chmod 0755 /var/www/html/index.php
-
 ADD conf/start.sh /start.sh
 RUN chmod 0755 /start.sh
 
