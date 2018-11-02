@@ -2,7 +2,7 @@ version: '3'
 
 services:
   apache_php1:
-    build: ./httpd
+    image: hdgdink/httpd
     ports:
       - 8080:8080
     volumes:
@@ -17,7 +17,7 @@ services:
       MYSQL_PASSWORD: "test"
 
   apache_php2:
-      build: ./httpd
+      image: hdgdink/httpd
       ports:
         - 8090:8080
       volumes:
@@ -33,7 +33,7 @@ services:
 
 
   mariadb:
-    build: ./mySQL
+    image: hdgdink/mariadb
     ports:
       - 3306:3306
     volumes:
@@ -49,7 +49,7 @@ services:
       MYSQL_COLLATION: "cp1251_bin"
 
   apache_load_balancer:
-    build: ./balancer
+    image: hdgdink/load_balancer
     ports:
       - 80:80
     volumes:
