@@ -25,7 +25,7 @@ services:
       links:
         - mariadb
       depends_on:
-        - apache_php2
+        - apache_php1
       environment:
         MYSQL_HOSTNAME: "mariadb"
         MYSQL_USER: "test"
