@@ -25,7 +25,7 @@ services:
       links:
         - mariadb
       depends_on:
-        - mariadb
+        - apache_php2
       environment:
         MYSQL_HOSTNAME: "mariadb"
         MYSQL_USER: "test"
@@ -56,9 +56,10 @@ services:
       - ./balancer/src:/var/www/html
     links:
       - mariadb
-      - apache_php
+      - apache_php1
+      - apache_php2
     depends_on:
-      - apache_php
+      - apache_php2
     environment:
       MYSQL_HOSTNAME: "mariadb"
       MYSQL_USER: "test"
