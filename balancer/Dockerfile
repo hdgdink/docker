@@ -9,8 +9,8 @@ RUN yum clean all && rm -rf /tmp/yum*
 
 EXPOSE 80
 
-COPY conf/lb.conf /etc/httpd/conf/lb.conf
-RUN chmod 0755 /etc/httpd/conf/lb.conf
+COPY conf/httpd.conf /etc/httpd/conf/httpd.conf
+RUN chmod 0755 /etc/httpd/conf/httpd.conf
 
 ADD conf/start.sh /start.sh
 RUN chmod 0755 /start.sh
