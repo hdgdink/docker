@@ -49,7 +49,7 @@ services:
       MYSQL_COLLATION: "cp1251_bin"
 
   apache_load_balancer:
-    build: ./load_balancer
+    build: hdgdink/balancer
     ports:
       - 80:80
     volumes:
